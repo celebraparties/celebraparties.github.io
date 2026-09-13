@@ -25,4 +25,4 @@ f();setInterval(f,30000);})();
 
 (function(){var main=document.getElementById('main-img');document.querySelectorAll('.thumbs img').forEach(function(t){t.onclick=function(){main.src=t.src;document.querySelectorAll('.thumbs img').forEach(function(x){x.classList.remove('on')});t.classList.add('on');};});
 var btn=document.getElementById('buy');var q=document.getElementById('qty');if(btn&&btn.dataset.link){btn.onclick=function(){var n=Math.max(1,parseInt(q.value||'1',10));location.href=btn.dataset.link+(btn.dataset.link.indexOf('?')>0?'&':'?')+'quantity='+n;};}})();
-</script></body></html>
+</script><script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "8b5c5db4e97d4ed5a8c5f05f4dfe659d"}'></script></body></html>
