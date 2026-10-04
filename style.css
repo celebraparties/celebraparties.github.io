@@ -22,7 +22,7 @@ section{padding:48px 0}h2{font-size:30px;margin:0 0 6px}.sub{color:var(--muted);
 .card{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;transition:transform .15s}
 .card:hover{transform:translateY(-3px)}.card .img{aspect-ratio:1;background:#000;overflow:hidden;position:relative}.card .img img{width:100%;height:100%;object-fit:cover}
 .card .body{padding:14px 16px 18px;display:flex;flex-direction:column;gap:6px;flex:1}.card h3{margin:0;font-size:17px}
-.card .sub{margin:0;font-size:13px}.price{margin-top:auto;display:flex;align-items:baseline;gap:10px}.price b{font-size:20px}.price s{color:var(--muted);font-size:14px}
+.card .sub{margin:0;font-size:13px}.price{margin-top:auto;display:flex;align-items:baseline;gap:10px}.price b{font-size:20px}.price s{color:var(--muted);font-size:14px}.price .sep{color:var(--muted);font-size:13px}
 .tag{position:absolute;top:12px;left:12px;background:var(--acc);color:#1a0d00;font-size:12px;font-weight:700;padding:4px 9px;border-radius:6px}
 .kit{background:linear-gradient(135deg,#2a1608,#161320);border:1px solid #4a2a10;border-radius:18px;padding:32px;display:grid;grid-template-columns:1.1fr 1fr;gap:28px;align-items:center}
 .kit .imgs{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.kit .imgs img{aspect-ratio:1;object-fit:cover;border-radius:10px}
