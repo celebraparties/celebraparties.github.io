@@ -2,7 +2,7 @@
 <title>Juego de misterio «Muerte en las fiestas del pueblo» | Celebra</title><meta name="description" content="Verbena de San Roque con peñas, orquesta y fuegos. 6-7 jugadores adultos, 60-90 minutos. 7,00 €, se descarga al momento."><meta property="og:type" content="website"><meta property="og:title" content="Juego de misterio «Muerte en las fiestas del pueblo»"><meta property="og:description" content="Verbena de San Roque con peñas, orquesta y fuegos. 6-7 jugadores adultos, 60-90 minutos. 7,00 €, se descarga al momento."><meta property="og:image" content="https://celebraparties.github.io/img/imp-misterio-fiestas-pueblo-1.jpg"><meta name="twitter:card" content="summary_large_image">
 <meta name="google-site-verification" content="QlVWaBrEJ9nu6akjPhwg_2ymrsauX9KLMb0OIU8nt6k" />
 <link rel="stylesheet" href="../style.css"><link rel="icon" type="image/png" href="../favicon.png"><link rel="apple-touch-icon" href="../favicon.png"></head><body>
-<div class="topbar">Pide antes del 14 de octubre para tenerlo en Halloween &middot; Envío gratis</div>
+<div class="topbar" data-lim="2026-10-14" data-lim2="2026-10-18" data-lim2txt="18 de octubre">Pide antes del 14 de octubre para tenerlo en Halloween &middot; Envío gratis</div>
 <header><div class="wrap"><a class="logo" href="../index.html">Celebr<span>a</span></a>
 <nav><a href="../index.html#decoracion">Decoración</a><a href="../index.html#disfraces">Disfraces</a><a href="../index.html#packs">Packs</a><a href="../blog/index.html">Ideas</a><a href="../index.html#faq">Envíos</a></nav></div></header>
 <div class="wrap"><div class="crumbs"><a href="../index.html">Inicio</a> / <a href="../index.html#misterios">Juegos de misterio</a> / Juego de misterio «Muerte en las fiestas del pueblo»</div>
@@ -24,12 +24,27 @@
 function f(){var d=Math.max(0,t-new Date());var D=Math.floor(d/864e5),H=Math.floor(d%864e5/36e5),M=Math.floor(d%36e5/6e4);
 el.innerHTML='<div><b>'+D+'</b><small>d\u00edas</small></div><div><b>'+H+'</b><small>horas</small></div><div><b>'+M+'</b><small>min</small></div>';}
 f();setInterval(f,30000);})();
+(function(){
+/* 8-oct («Nuevos ingresos», OK de Armand): pasada la fecha límite de envío, la web cambia sola sin publicar de nuevo.
+   La franja de arriba avisa de que los disfraces ya no llegan y el bloque «Última hora» (lo que se descarga al momento)
+   sube al principio de la portada. data-lim = límite general, data-lim2 = límite de las máscaras. */
+var tb=document.querySelector('.topbar');if(!tb||!tb.dataset.lim)return;
+function dia(s){var p=s.split('-');return new Date(+p[0],p[1]-1,+p[2]);}
+var n=new Date(),hoy=new Date(n.getFullYear(),n.getMonth(),n.getDate());
+if(hoy<=dia(tb.dataset.lim))return;
+tb.innerHTML=hoy<=dia(tb.dataset.lim2)
+ ?'Para Halloween: m\u00e1scaras hasta el '+tb.dataset.lim2txt+' &middot; imprimibles y juegos, se descargan al momento'
+ :'Para Halloween: imprimibles y juegos de misterio, se descargan al momento';
+var uh=document.getElementById('ultima-hora'),hero=document.querySelector('.hero');
+if(uh&&hero){uh.style.display='';hero.parentNode.insertBefore(uh,hero.nextSibling);
+var b=hero.querySelector('a.btn');if(b){b.href='#ultima-hora';b.textContent='\u00daltima hora: desc\u00e1rgalo hoy';}}
+})();
 
 (function(){var main=document.getElementById('main-img');document.querySelectorAll('.thumbs img').forEach(function(t){t.onclick=function(){main.src=t.src;document.querySelectorAll('.thumbs img').forEach(function(x){x.classList.remove('on')});t.classList.add('on');};});
 var btn=document.getElementById('buy');var q=document.getElementById('qty');if(btn&&btn.dataset.link){btn.onclick=function(){var n=Math.max(1,parseInt(q.value||'1',10));location.href=btn.dataset.link+(btn.dataset.link.indexOf('?')>0?'&':'?')+'quantity='+n;};}
 var pl=document.querySelector('.plazo');if(pl){var p=pl.dataset.hasta.split('-'),h=new Date(+p[0],p[1]-1,+p[2]),n=new Date();
 var d=Math.round((h-new Date(n.getFullYear(),n.getMonth(),n.getDate()))/864e5);
-if(d<0){pl.style.display='none';}
+if(d<0){pl.classList.add('tarde');pl.innerHTML='&#9888;&#65039; Si lo pides hoy, <b>llegar\u00e1 despu\u00e9s de Halloween</b> (entrega en 7-15 d\u00edas)';}
 else if(d==0){pl.innerHTML='&#9200; <b>Hoy es el \u00faltimo d\u00eda</b> para pedirlo y tenerlo en Halloween';}
 else if(d==1){pl.innerHTML='&#9200; <b>Ma\u00f1ana es el \u00faltimo d\u00eda</b> para pedirlo y tenerlo en Halloween';}
 else{pl.innerHTML='&#9200; Quedan <b>'+d+' d\u00edas</b> para pedirlo y tenerlo en Halloween';}}})();
