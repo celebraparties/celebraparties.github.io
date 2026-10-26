@@ -82,6 +82,7 @@ h1,h2,.hero h1{font-family:Fraunces,Georgia,serif;font-weight:800}h2{color:var(-
 header{background:rgba(255,255,255,.96);border-bottom:1px solid var(--line)}
 .logo{color:#1f1f1f}.logo span{color:var(--rojo);position:relative}
 .logo span svg{position:absolute;left:50%;top:-11px;transform:translateX(-50%);width:14px;height:14px}
+.logo i.gorro{font-style:normal;position:relative;display:inline-block}.logo i.gorro svg{position:absolute;left:-.16em;top:-.42em;width:.98em;height:.74em;transform:rotate(-12deg)}
 header nav a{color:#444;font-weight:700}header nav a:hover{color:var(--rojo)}
 .chips{display:flex;gap:8px;overflow-x:auto;padding:2px 20px 12px;scrollbar-width:none;max-width:1120px;margin:0 auto}
 .chips::-webkit-scrollbar{display:none}
