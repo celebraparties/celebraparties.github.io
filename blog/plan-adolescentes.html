@@ -60,7 +60,7 @@ function f(){var d=Math.max(0,t-new Date());var D=Math.floor(d/864e5),H=Math.flo
 el.innerHTML='<div><b>'+D+'</b><small>d\u00edas</small></div><div><b>'+H+'</b><small>horas</small></div><div><b>'+M+'</b><small>min</small></div>';}
 f();setInterval(f,30000);})();
 (function(){
-/* 8-oct («Nuevos ingresos», OK de Armand): pasada la fecha límite de envío, la web cambia sola sin publicar de nuevo.
+/* 8-oct («Nuevos ingresos»): pasada la fecha límite de envío, la web cambia sola sin publicar de nuevo.
    La franja de arriba avisa de que los disfraces ya no llegan y el bloque «Última hora» (lo que se descarga al momento)
    sube al principio de la portada. data-lim = límite general, data-lim2 = límite de las máscaras. */
 var tb=document.querySelector('.topbar');if(!tb||!tb.dataset.lim)return;
