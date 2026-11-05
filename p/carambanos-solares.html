@@ -9,12 +9,12 @@
 <div class="prod"><div class="gallery"><div class="main"><img id="main-img" src="../img/carambanos-solares-1.jpg" alt="Luces carámbano solares de 7,5 m para exterior"></div><div class="thumbs"><img src="../img/carambanos-solares-1.jpg" class="on" alt=""><img src="../img/carambanos-solares-2.jpg" class="" alt=""><img src="../img/carambanos-solares-3.jpg" class="" alt=""><img src="../img/carambanos-solares-4.jpg" class="" alt=""></div></div>
 <div class="buy"><h1>Luces carámbano solares de 7,5 m para exterior</h1><p class="sub">162 luces que cuelgan del tejado o la barandilla, sin enchufe</p>
 <div class="price"><b>27,90 €</b></div>
-<p>La típica guirnalda de carámbanos que cuelga del tejado, la barandilla o el balcón, pero solar: no hay que buscar enchufe. 7,5 metros y 162 luces, con encendido automático al anochecer y varios modos.</p><ul><li>7,5 m y 162 LED</li><li>Solar, con encendido automático</li><li>Resistente al agua</li><li>Llega en 7-15 días: pídelo antes del 9 de diciembre para Nochebuena, o antes del 18 para Reyes</li></ul>
+
 
 <div class="qty"><label for="qty">Cantidad</label><input id="qty" type="number" min="1" max="10" value="1"></div>
 <p class="plazo" data-hasta="2026-12-09" data-evento="Nochebuena" data-hasta2="2026-12-18" data-evento2="Reyes">&#9200; Pídelo antes del 9 de diciembre para tenerlo en Nochebuena</p>
 <button class="btn" id="buy" data-link="../ir/carambanos-solares/">Comprar ahora</button>
-<p class="llega" data-min="7" data-max="15">&#128666; Envío gratis a España peninsular. Entrega estimada en 7-15 días.</p><ul class="garantia"><li>&#10003; Te mandamos el número de seguimiento</li><li>&#10003; ¿Llega roto o no es lo que pediste? Te devolvemos el dinero o te mandamos otro</li><li>&#10003; 14 días para devolverlo, sin dar explicaciones (envío de vuelta a tu cargo)</li><li>&#10003; Si en 30 días no ha llegado, te devolvemos el dinero</li></ul><div class="pagos">&#128274; Pago seguro: <b>Tarjeta</b><b>PayPal</b><b>Klarna</b><b>Amazon Pay</b><span>con Stripe: no vemos los datos de tu tarjeta</span></div></div></div></div>
+<p class="llega" data-min="7" data-max="15">&#128666; Envío gratis a España peninsular. Entrega estimada en 7-15 días.</p><ul class="garantia"><li>&#10003; Te mandamos el número de seguimiento</li><li>&#10003; ¿Llega roto o no es lo que pediste? Te devolvemos el dinero o te mandamos otro</li><li>&#10003; 14 días para devolverlo, sin dar explicaciones (envío de vuelta a tu cargo)</li><li>&#10003; Si en 30 días no ha llegado, te devolvemos el dinero</li></ul><div class="pagos">&#128274; Pago seguro: <b>Tarjeta</b><b>PayPal</b><b>Klarna</b><b>Amazon Pay</b><span>con Stripe: no vemos los datos de tu tarjeta</span></div><p>La típica guirnalda de carámbanos que cuelga del tejado, la barandilla o el balcón, pero solar: no hay que buscar enchufe. 7,5 metros y 162 luces, con encendido automático al anochecer y varios modos.</p><ul><li>7,5 m y 162 LED</li><li>Solar, con encendido automático</li><li>Resistente al agua</li><li>Llega en 7-15 días: pídelo antes del 9 de diciembre para Nochebuena, o antes del 18 para Reyes</li></ul></div></div></div>
 
 <section><div class="wrap"><h2>Combínalo con</h2><div class="grid"><a class="card" href="../p/luces-cortina-led.html"><div class="img"><span class="tag">Pack de 2</span><img src="../img/luces-cortina-led-amb.jpg" alt="Pack 2 cortinas de luces LED 3 × 3 m con mando" loading="lazy"></div>
 <div class="body"><h3>Pack 2 cortinas de luces LED 3 × 3 m con mando</h3><p class="sub">600 luces para dos ventanas: 8 modos, mando a distancia y USB</p><div class="price"><b>22,90 €</b></div></div></a><a class="card" href="../p/proyector-copos-nieve.html"><div class="img"><span class="tag">Favorito</span><img src="../img/proyector-copos-nieve-amb.jpg" alt="Proyector de Navidad con 16 dibujos" loading="lazy"></div>
@@ -43,7 +43,7 @@ var b=hero.querySelector('a.btn');if(b){b.href='#ultima-hora';b.textContent='\u0
 
 (function(){var main=document.getElementById('main-img');document.querySelectorAll('.thumbs img').forEach(function(t){t.onclick=function(){main.src=t.src;document.querySelectorAll('.thumbs img').forEach(function(x){x.classList.remove('on')});t.classList.add('on');};});
 var btn=document.getElementById('buy');var q=document.getElementById('qty');if(btn&&btn.dataset.link){btn.onclick=function(){var n=Math.max(1,parseInt(q.value||'1',10));location.href=btn.dataset.link+(btn.dataset.link.indexOf('?')>0?'&':'?')+'quantity='+n;};}
-var pl=document.querySelector('.plazo');if(pl){
+var pl=document.querySelector('.plazo');if(pl&&pl.dataset.hasta){
 /* data-hasta/data-evento = primer límite (Halloween, o Nochebuena en Navidad); data-hasta2/data-evento2 = segundo (Reyes). */
 var n=new Date(),hoy=new Date(n.getFullYear(),n.getMonth(),n.getDate());
 function dias(s){var p=s.split('-');return Math.round((new Date(+p[0],p[1]-1,+p[2])-hoy)/864e5);}
@@ -59,6 +59,12 @@ var ll=document.querySelector('.llega');if(ll){var M=['enero','febrero','marzo',
 var a=new Date(),b=new Date();a.setDate(a.getDate()+(+ll.dataset.min));b.setDate(b.getDate()+(+ll.dataset.max));
 ll.innerHTML='&#128666; Si lo pides hoy, te llega <b>entre el '+a.getDate()+(a.getMonth()!=b.getMonth()?' de '+M[a.getMonth()]:'')+' y el '+b.getDate()+' de '+M[b.getMonth()]+'</b> &middot; env\u00edo gratis';}
 })();
+
+(function(){var bb=document.getElementById('buy'),pv=document.querySelector('.buy .price b');
+if(!bb||!bb.dataset.link||!pv||!('IntersectionObserver' in window))return;
+var bar=document.createElement('div');bar.id='barra-compra';bar.innerHTML='<b>'+pv.textContent+'</b><button class="btn" type="button">Comprar</button>';document.body.appendChild(bar);
+bar.querySelector('button').onclick=function(){var t=document.querySelector('.tallas');if(t){t.scrollIntoView({behavior:'smooth'})}else{bb.click()}};
+new IntersectionObserver(function(en){document.body.classList.toggle('con-barra',!en[0].isIntersecting)}).observe(bb);})();
 </script><div id="fun"><div class="nube"></div><button class="bola" aria-label="Hablar con Lázaro"><img src="../avatar/lazaro-navidad.jpg" alt=""></button><div class="panel"><button class="x" aria-label="Cerrar">&times;</button><div class="medio"></div><b>Lázaro · el tendero</b><p class="txt"></p><div class="ops"><a data-k="saludo" href="../index.html#guia">🎁 Guía de regalos</a><a data-k="gratis" href="../index.html#regalos-15">Amigo invisible</a><a data-k="imprimibles" href="../seccion/imprimir.html">Para imprimir</a><a data-k="misterios" href="../seccion/todo-el-ano.html">Juegos de misterio</a></div></div></div><script>window.FUN={"b": "../", "v": {"saludo": false, "misterios": false, "personalizadas": false, "imprimibles": false, "cumples": false, "gratis": false}, "g": {"saludo": ["¿Para quién es el regalo?", "¡Hola! Soy Lázaro. Llevo toda la vida eligiendo regalos. Dime para quién es y te ayudo a acertar. Y si lo pides antes del 9 de diciembre, llega antes de Nochebuena: palabra de Lázaro."], "misterios": ["¿Una cena distinta en Nochebuena?", "Con el juego de misterio cada invitado recibe un personaje… y uno es el culpable. Se descarga al momento y se juega en la sobremesa."], "personalizadas": ["Dame un nombre y lo preparo.", "Dime el nombre, la edad y la hora de la fiesta, y te preparo la invitación lista para enviar."], "imprimibles": ["Esto se imprime hoy mismo.", "Cartas a los Reyes, etiquetas para los regalos y juegos para la familia: lo descargas al momento y lo imprimes en casa."], "cumples": ["También hay cumpleaños en diciembre…", "Elige el tema, imprime, y la fiesta está lista antes de que llegue nadie."], "gratis": ["Hoy te regalo algo…", "Te regalo el kit de Navidad para imprimir: carta a los Reyes, etiquetas y bingo navideño. Gratis."]}, "img": "avatar/lazaro-navidad.jpg"};
 (function(){var F=window.FUN,el=document.getElementById('fun');if(!F||!el)return;
 var p=location.pathname,k='saludo';
@@ -67,7 +73,7 @@ else if(/gratis/.test(p))k='gratis';else if(/imp-/.test(p))k='imprimibles';
 var g=F.g[k],ss=null;try{ss=window.sessionStorage}catch(e){}
 function visto(){try{return ss&&ss.getItem('funVisto')}catch(e){return null}}
 el.querySelector('.nube').textContent=g[0];
-if(!visto())setTimeout(function(){el.classList.add('hablar');setTimeout(function(){el.classList.remove('hablar')},7000)},3500);
+if(!visto())setTimeout(function(){if(innerWidth<=640&&document.getElementById('barra-compra'))return;el.classList.add('hablar');setTimeout(function(){el.classList.remove('hablar')},7000)},3500);
 var med=el.querySelector('.medio'),txt=el.querySelector('.txt');
 el.querySelector('.bola').onclick=function(){el.classList.add('abierto');try{ss&&ss.setItem('funVisto','1')}catch(e){}
  med.innerHTML='';txt.textContent='\u201c'+g[1]+'\u201d';

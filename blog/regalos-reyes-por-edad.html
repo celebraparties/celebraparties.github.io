@@ -73,7 +73,7 @@ else if(/gratis/.test(p))k='gratis';else if(/imp-/.test(p))k='imprimibles';
 var g=F.g[k],ss=null;try{ss=window.sessionStorage}catch(e){}
 function visto(){try{return ss&&ss.getItem('funVisto')}catch(e){return null}}
 el.querySelector('.nube').textContent=g[0];
-if(!visto())setTimeout(function(){el.classList.add('hablar');setTimeout(function(){el.classList.remove('hablar')},7000)},3500);
+if(!visto())setTimeout(function(){if(innerWidth<=640&&document.getElementById('barra-compra'))return;el.classList.add('hablar');setTimeout(function(){el.classList.remove('hablar')},7000)},3500);
 var med=el.querySelector('.medio'),txt=el.querySelector('.txt');
 el.querySelector('.bola').onclick=function(){el.classList.add('abierto');try{ss&&ss.setItem('funVisto','1')}catch(e){}
  med.innerHTML='';txt.textContent='\u201c'+g[1]+'\u201d';
