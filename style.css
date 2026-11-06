@@ -154,6 +154,7 @@ section[id]{padding-top:18px}
 .chips a:nth-child(even){background:var(--verde);color:#fff;border-color:var(--verde)}
 .chips a:nth-child(3n){background:var(--oro);color:#3a2600;border-color:var(--oro)}
 
+#fun{transition:opacity .2s}body.sin-bola #fun{opacity:0;pointer-events:none}
 @media(max-width:640px){section{padding:28px 0}h2{font-size:25px}.sub{margin-bottom:16px}
 .grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.card .body{padding:10px 10px 12px;gap:4px}.card h3{font-size:15px;line-height:1.25}
 .card .sub{font-size:12px;line-height:1.3;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
