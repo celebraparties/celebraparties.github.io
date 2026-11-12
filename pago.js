@@ -62,12 +62,24 @@
   telefono.addEventListener("input", function () { pintar(acciones.getSession()); });
 
   var cajaCodigo = document.getElementById("pagocodigo");
+  // 12-nov: con un producto sin descuento la sesión no admite códigos; se avisa en vez de dejar la caja muda
+  var sinCodigo = window.CELEBRA_SIN_CODIGO || [];
+  var excluido = lineas.filter(function (l) { return sinCodigo.indexOf(l.slug) >= 0; })[0];
+  if (excluido) {
+    var nombre = (window.CESTA_DATOS[excluido.slug] || {}).nombre || "un producto";
+    cajaCodigo.querySelector(".pagofila").hidden = true;
+    var aviso = document.getElementById("pagocodigomsg");
+    aviso.hidden = false;
+    aviso.className = "cestanota";
+    aviso.textContent = "Los códigos de descuento no se pueden usar en este pedido porque lleva " + nombre + ".";
+  }
   cajaCodigo.querySelector("button").addEventListener("click", async function () {
     var c = cajaCodigo.querySelector("input").value.trim(), m = document.getElementById("pagocodigomsg");
     if (!c) return;
-    var res = await acciones.applyPromotionCode(c);
+    var res;
+    try { res = await acciones.applyPromotionCode(c); } catch (e) { res = { type: "error" }; }
     m.hidden = false;
-    if (res.type === "error") { m.className = "cestaaviso mal"; m.textContent = "Ese código no vale para este pedido."; }
+    if (!res || res.type === "error") { m.className = "cestaaviso mal"; m.textContent = "Ese código no vale para este pedido."; }
     else { m.className = "cestaaviso bien"; m.textContent = "Código aplicado."; }
   });
 

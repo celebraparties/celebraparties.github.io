@@ -158,4 +158,5 @@ section[id]{padding-top:18px}
 @media(max-width:640px){section{padding:28px 0}h2{font-size:25px}.sub{margin-bottom:16px}
 .grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.card .body{padding:10px 10px 12px;gap:4px}.card h3{font-size:15px;line-height:1.25}
 .card .sub{font-size:12px;line-height:1.3;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
-.price{flex-wrap:wrap;gap:4px 8px}.price b{font-size:18px}.tag{top:8px;left:8px;font-size:11px;padding:3px 7px}}
+.price{flex-wrap:wrap;gap:4px 8px}.price b{font-size:18px}.tag{top:8px;left:8px;font-size:11px;padding:3px 7px}
+.clubpag .clubpriv{padding-right:84px}}
