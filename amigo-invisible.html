@@ -14,15 +14,20 @@
 @media(max-width:520px){.ai .fila{grid-template-columns:1fr}}
 .ai .clubform label{display:flex;font-weight:400;margin:0}.ai .clubform label input{width:auto;flex:none;margin-top:3px}.ai .clubform input[type=email]{width:auto}
 </style><section><div class="wrap ai">
-<h1>Sorteo de amigo invisible online, gratis y por WhatsApp</h1>
-<p class="sub">Pon los nombres, haz el sorteo y manda a cada uno su enlace por WhatsApp. Sin registros y sin que nadie vea lo que le toca a los demás.</p>
+<h1 style="font-size:28px;margin:0 0 10px">Sorteo de amigo invisible por WhatsApp</h1>
 <div id="ai-form">
-<label for="ai-n">Participantes (uno por línea)</label><textarea id="ai-n" placeholder="Ana&#10;Luis&#10;Marta&#10;Pablo"></textarea>
+<!-- 16-nov (Armand: «no ve dónde poner los teléfonos»; «OK a cambiar el sorteo del amigo invisible así»): pasos claros,
+     sin teléfonos, botón justo debajo de los nombres y el resto plegado -->
+<ol style="margin:0 0 14px;padding:12px 12px 12px 34px;background:#14633a;color:#fff;border-radius:12px;font-size:16px;line-height:1.5">
+<li><b>Escribe los nombres</b></li><li>Te damos <b>un enlace para cada uno</b></li><li><b>Mándalo por WhatsApp</b>: cada uno ve solo a quién le toca</li></ol>
+<label for="ai-n" style="margin-top:4px">Nombres de los que participan <span style="font-weight:400;color:var(--muted,#777)">(uno por línea, sin teléfonos)</span></label><textarea id="ai-n" style="min-height:120px" placeholder="Por ejemplo:&#10;Ana&#10;Luis&#10;Marta"></textarea>
+<p style="margin:12px 0 6px"><button class="btn" id="ai-go" style="width:100%">Hacer el sorteo</button></p>
+<details><summary style="font-weight:700;margin:10px 0;cursor:pointer">Más opciones: presupuesto, fecha y parejas</summary>
 <div class="fila"><div><label for="ai-g">Nombre del grupo (opcional)</label><input id="ai-g" placeholder="Familia, oficina, amigos…"></div>
 <div><label for="ai-p">Presupuesto</label><select id="ai-p"><option value="">Sin límite</option><option value="15">Hasta 15 €</option><option value="20" selected>Hasta 20 €</option><option value="30">Hasta 30 €</option><option value="50">Hasta 50 €</option></select></div></div>
 <label for="ai-f">Día del intercambio (opcional)</label><input id="ai-f" placeholder="Por ejemplo, Nochebuena o el 20 de diciembre">
 <label for="ai-x">Parejas que no se regalan entre sí (opcional)</label><textarea id="ai-x" style="min-height:70px" placeholder="Ana - Luis"></textarea>
-<p style="margin-top:18px"><button class="btn" id="ai-go">Hacer el sorteo</button></p>
+</details>
 <div id="ai-hecho" style="display:none"><h2>¡Sorteo hecho! Manda a cada uno su enlace</h2><p class="sub">Cada enlace es personal: no abras los de los demás si no quieres saber a quién le toca.</p><ul id="ai-lista"></ul><div class="ai-franja" style="margin:22px 0;padding:16px;border-radius:14px;background:#14633a;color:#fff;text-align:left"><h2 style="margin:0 0 4px;color:#fff">&#127873; ¿Ya sabes qué regalarle?</h2><p style="margin:0;opacity:.9">Envío gratis a la Península y Baleares.</p><h3 style="margin:14px 0 8px;color:#fff">Hasta 15 €</h3><div class="grid cgrid" style="color:var(--txt)"><div class="ccomp" data-precio="4.0"><a class="card vertical" href="p/imp-kit-amigo-invisible.html"><div class="img"><span class="tag">Amigo invisible</span><img src="img/imp-kit-amigo-invisible-1.jpg" alt="Kit del amigo invisible para imprimir" loading="lazy"></div>
 <div class="body"><h3>Kit del amigo invisible para imprimir</h3><p class="sub">Papeletas, listas de deseos, etiquetas «De: tu amigo invisible» y el juego «¿Quién ha sido?»</p><div class="price"><b>4,00 €</b></div></div></a><a class="btn" href="ir/imp-kit-amigo-invisible/">Comprar · 4,00 €</a></div><div class="ccomp" data-precio="13.9"><a class="card" href="p/mini-belen-lata.html"><div class="img"><span class="tag">Detalle</span><img src="img/mini-belen-lata-3.jpg" alt="Mini belén en caja de lata" loading="lazy"></div>
 <div class="body"><h3>Mini belén en caja de lata</h3><p class="sub">Un belén diminuto dentro de una cajita dorada: detalle perfecto o amigo invisible</p><div class="price"><b>13,90 €</b></div></div></a><a class="btn" href="ir/mini-belen-lata/">Comprar · 13,90 €</a></div><div class="ccomp" data-precio="14.9"><a class="card" href="p/munecos-colgantes-arbol.html"><div class="img"><span class="tag">Pack de 4</span><img src="img/munecos-colgantes-arbol-1.jpg" alt="4 muñequitos de tela para colgar del árbol" loading="lazy"></div>
