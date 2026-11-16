@@ -59,7 +59,7 @@ else{var ult=pl.dataset.evento2||ev;pl.classList.add('tarde');pl.innerHTML='&#98
 /* 31-oct (confianza): fecha de entrega con d\u00edas reales en vez de "7-15 d\u00edas" */
 var ll=document.querySelector('.llega');if(ll){var M=['enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre'];
 var a=new Date(),b=new Date();a.setDate(a.getDate()+(+ll.dataset.min));b.setDate(b.getDate()+(+ll.dataset.max));
-ll.innerHTML='&#128666; Si lo pides hoy, te llega <b>entre el '+a.getDate()+(a.getMonth()!=b.getMonth()?' de '+M[a.getMonth()]:'')+' y el '+b.getDate()+' de '+M[b.getMonth()]+'</b> &middot; env\u00edo gratis a la Pen\u00ednsula';}
+ll.innerHTML='&#128666; Si lo pides hoy, te llega <b>entre el '+a.getDate()+(a.getMonth()!=b.getMonth()?' de '+M[a.getMonth()]:'')+' y el '+b.getDate()+' de '+M[b.getMonth()]+'</b> &middot; env\u00edo gratis '+(ll.dataset.zona||'a la Pen\u00ednsula y Baleares');}
 })();
 
 (function(){var bb=document.getElementById('buy'),pv=document.querySelector('.buy .price b');
