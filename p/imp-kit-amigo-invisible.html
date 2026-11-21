@@ -46,6 +46,8 @@ var b=hero.querySelector('a.btn');if(b){b.href='#ultima-hora';b.textContent='\u0
 var btn=document.getElementById('buy');var q=document.getElementById('qty');if(btn&&btn.dataset.link){btn.onclick=function(){var n=Math.max(1,parseInt(q.value||'1',10));
 /* 15-nov (medida del anuncio): los utm_ con los que llega la ficha pasan a /ir/ y de ahí a Stripe */
 var u=(location.search.match(/utm_[a-z]+=[^&]*/g)||[]).join('&');
+/* 21-nov: si se entró por /gta (u otra entrada con utm) y se navegó por la web, los utm guardados en la pestaña */
+if(!u){try{u=sessionStorage.getItem('celebra_utm')||'';}catch(e){}}
 location.href=btn.dataset.link+(btn.dataset.link.indexOf('?')>0?'&':'?')+'quantity='+n+(u?'&'+u:'');};}
 var pl=document.querySelector('.plazo');if(pl&&pl.dataset.hasta){
 /* data-hasta/data-evento = primer límite (Halloween, o Nochebuena en Navidad); data-hasta2/data-evento2 = segundo (Reyes). */
