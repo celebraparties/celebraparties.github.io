@@ -160,3 +160,12 @@ section[id]{padding-top:18px}
 .card .sub{font-size:12px;line-height:1.3;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
 .price{flex-wrap:wrap;gap:4px 8px}.price b{font-size:18px}.tag{top:8px;left:8px;font-size:11px;padding:3px 7px}
 .clubpag .clubpriv{padding-right:84px}}
+
+.chips a.sec-gamer,.chips a.sec-gamer:nth-child(n){background:linear-gradient(90deg,#6b21a8,#c8102e)!important;color:#fff!important;border-color:#7e22ce!important}
+.sec-tile.sec-gamer{color:#6b21a8}
+.sec-tile.sec-gamer .ph.ico{background:linear-gradient(135deg,#f3e8ff,#ffe4e8);border-color:#9333ea}
+section#gamer>.wrap>h2,.secgamer h1.banda{background:linear-gradient(90deg,#5b1690,#9333ea 60%,#c8102e)!important;color:#fff!important}
+.secgamer h1.banda{display:block;margin:14px -20px 6px!important;padding:14px 20px;border-radius:14px}
+section#gamer .price b,.secgamer .price b{color:#7e22ce}
+section#gamer .tag,.secgamer .tag{background:#7e22ce;color:#fff}
+.secgamer .guia a.on{background:#7e22ce;border-color:#7e22ce;color:#fff}
