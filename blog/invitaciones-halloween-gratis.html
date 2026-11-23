@@ -45,6 +45,24 @@
 <footer><div class="wrap"><div class="links"><a href="../quienes-somos.html">Quiénes somos</a><a href="../legal/aviso-legal.html">Aviso legal</a><a href="../legal/privacidad.html">Privacidad</a><a href="../legal/condiciones.html">Condiciones y devoluciones</a><a href="../legal/cookies.html">Cookies</a></div>
 <p>&copy; 2026 Celebra &middot; celebra.drop@gmail.com &middot; <a href="https://www.instagram.com/celebra.parties/" target="_blank" rel="noopener">Instagram @celebra.parties</a> &middot; <a href="https://www.tiktok.com/@celebra.parties" target="_blank" rel="noopener">TikTok @celebra.parties</a> &middot; <a href="https://www.facebook.com/celebra.parties" target="_blank" rel="noopener">Facebook</a></p></div></footer>
 <script>
+(function(){try{var S=window.sessionStorage,K='celebra_origen',q=location.search;
+function g(n){var m=q.match(new RegExp('[?&]'+n+'=([^&#]*)'));try{return m?decodeURIComponent(m[1].replace(/[+]/g,' ')):'';}catch(e){return m?m[1]:'';}}
+function c(v,n){v=String(v||'').toLowerCase();if(v.normalize)v=v.normalize('NFD').replace(/[\u0300-\u036f]/g,'');
+v=v.replace(/[^a-z0-9-]+/g,'-').replace(/^-+|-+$/g,'').slice(0,n);return v||'x';}
+var pg=location.pathname.replace(/^[/]+/,'').replace(/[.]html$/,'').replace(/(^|[/])index$/,'').replace(/[/]+$/,'').replace(/[/]/g,'-')||'portada';
+var antes=null;try{antes=JSON.parse(S.getItem(K)||'null');}catch(e){}
+var src=g('utm_source');
+if(src){if(antes&&antes.u)return;
+S.setItem(K,JSON.stringify({u:1,r:[c(src,30),c(g('utm_medium'),20),c(g('utm_campaign')||g('utm_content'),40),c(pg,80)].join('_')}));return;}
+if(antes)return;
+var seg=(location.pathname.split('/')[1]||'').toLowerCase(),ENT={ig:1,fb:1,tt:1,wa:1,pin:1,gta:1,a:1},f,m='x';
+if(ENT[seg]){f=seg;m='entrada';}else{var h='';try{h=document.referrer?new URL(document.referrer).hostname.toLowerCase():'';}catch(e){}
+var R=[['instagram','instagram'],['facebook','facebook'],['fb.','facebook'],['tiktok','tiktok'],['pinterest','pinterest'],['pin.it','pinterest'],
+['google','google'],['bing','bing'],['etsy','etsy'],['whatsapp','whatsapp'],['wa.me','whatsapp'],['youtube','youtube'],['t.co','x'],['twitter','x'],['x.com','x']];
+f=h?'':'directo';for(var i=0;i<R.length&&!f;i++){if(h.indexOf(R[i][0])>=0)f=R[i][1];}
+if(!f){f=(h===location.hostname||/celebraparties|celebra-drop|github[.]io/.test(h))?'interno':h.replace(/^www[.]/,'');}}
+S.setItem(K,JSON.stringify({u:0,r:[c(f,30),m,'x',c(pg,80)].join('_')}));}catch(e){}})();
+
 (function(){var el=document.getElementById('cd');if(!el)return;var t=new Date(el.dataset.to+'T23:59:59');
 function f(){var d=Math.max(0,t-new Date());var D=Math.floor(d/864e5),H=Math.floor(d%864e5/36e5),M=Math.floor(d%36e5/6e4);
 el.innerHTML='<div><b>'+D+'</b><small>d\u00edas</small></div><div><b>'+H+'</b><small>horas</small></div><div><b>'+M+'</b><small>min</small></div>';}
