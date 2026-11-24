@@ -45,6 +45,14 @@ f=h?'':'directo';for(var i=0;i<R.length&&!f;i++){if(h.indexOf(R[i][0])>=0)f=R[i]
 if(!f){f=(h===location.hostname||/celebraparties|celebra-drop|github[.]io/.test(h))?'interno':h.replace(/^www[.]/,'');}}
 S.setItem(K,JSON.stringify({u:0,r:[c(f,30),m,'x',c(pg,80)].join('_')}));}catch(e){}})();
 
+(function(){/* 24-nov (Armand): etiqueta de entrega en cada tarjeta de producto, según la fecha del que mira */
+var n=window.CELEBRA_HOY?new Date(window.CELEBRA_HOY+'T12:00:00'):new Date(),hoy=new Date(n.getFullYear(),n.getMonth(),n.getDate());
+function f(s){var p=s.split('-');return new Date(+p[0],p[1]-1,+p[2]);}
+document.querySelectorAll('a.card[data-l24]').forEach(function(c){var b=c.querySelector('.body');if(!b)return;
+var t=document.createElement('p'),ok=hoy<=f(c.dataset.l24),rey=hoy<=f(c.dataset.lr);
+t.className='llegatag'+(ok?'':' tarde');t.style.cssText='margin:6px 0 0;font-size:12.5px;font-weight:700;color:'+(ok?'#1f7a3a':'#a5361c');
+t.innerHTML=ok?'&#9989; Llega antes de Nochebuena':rey?'&#9888;&#65039; Llega para Reyes, no para Nochebuena':'&#9888;&#65039; Llega despu\u00e9s de Reyes';
+b.appendChild(t);});})();
 (function(){var el=document.getElementById('cd');if(!el)return;var t=new Date(el.dataset.to+'T23:59:59');
 function f(){var d=Math.max(0,t-new Date());var D=Math.floor(d/864e5),H=Math.floor(d%864e5/36e5),M=Math.floor(d%36e5/6e4);
 el.innerHTML='<div><b>'+D+'</b><small>d\u00edas</small></div><div><b>'+H+'</b><small>horas</small></div><div><b>'+M+'</b><small>min</small></div>';}

@@ -43,6 +43,14 @@ f=h?'':'directo';for(var i=0;i<R.length&&!f;i++){if(h.indexOf(R[i][0])>=0)f=R[i]
 if(!f){f=(h===location.hostname||/celebraparties|celebra-drop|github[.]io/.test(h))?'interno':h.replace(/^www[.]/,'');}}
 S.setItem(K,JSON.stringify({u:0,r:[c(f,30),m,'x',c(pg,80)].join('_')}));}catch(e){}})();
 
+(function(){/* 24-nov (Armand): etiqueta de entrega en cada tarjeta de producto, según la fecha del que mira */
+var n=window.CELEBRA_HOY?new Date(window.CELEBRA_HOY+'T12:00:00'):new Date(),hoy=new Date(n.getFullYear(),n.getMonth(),n.getDate());
+function f(s){var p=s.split('-');return new Date(+p[0],p[1]-1,+p[2]);}
+document.querySelectorAll('a.card[data-l24]').forEach(function(c){var b=c.querySelector('.body');if(!b)return;
+var t=document.createElement('p'),ok=hoy<=f(c.dataset.l24),rey=hoy<=f(c.dataset.lr);
+t.className='llegatag'+(ok?'':' tarde');t.style.cssText='margin:6px 0 0;font-size:12.5px;font-weight:700;color:'+(ok?'#1f7a3a':'#a5361c');
+t.innerHTML=ok?'&#9989; Llega antes de Nochebuena':rey?'&#9888;&#65039; Llega para Reyes, no para Nochebuena':'&#9888;&#65039; Llega despu\u00e9s de Reyes';
+b.appendChild(t);});})();
 (function(){var el=document.getElementById('cd');if(!el)return;var t=new Date(el.dataset.to+'T23:59:59');
 function f(){var d=Math.max(0,t-new Date());var D=Math.floor(d/864e5),H=Math.floor(d%864e5/36e5),M=Math.floor(d%36e5/6e4);
 el.innerHTML='<div><b>'+D+'</b><small>d\u00edas</small></div><div><b>'+H+'</b><small>horas</small></div><div><b>'+M+'</b><small>min</small></div>';}
@@ -70,18 +78,24 @@ if(!u){try{u=sessionStorage.getItem('celebra_utm')||'';}catch(e){}}
 location.href=btn.dataset.link+(btn.dataset.link.indexOf('?')>0?'&':'?')+'quantity='+n+(u?'&'+u:'');};}
 var pl=document.querySelector('.plazo');if(pl&&pl.dataset.hasta){
 /* data-hasta/data-evento = primer límite (Halloween, o Nochebuena en Navidad); data-hasta2/data-evento2 = segundo (Reyes). */
-var n=new Date(),hoy=new Date(n.getFullYear(),n.getMonth(),n.getDate());
+var n=window.CELEBRA_HOY?new Date(window.CELEBRA_HOY+'T12:00:00'):new Date(),hoy=new Date(n.getFullYear(),n.getMonth(),n.getDate());
 function dias(s){var p=s.split('-');return Math.round((new Date(+p[0],p[1]-1,+p[2])-hoy)/864e5);}
 function msg(d,ev,pre){return '&#9200; '+pre+(d==0?'<b>Hoy es el \u00faltimo d\u00eda</b> para pedirlo y tenerlo en '+ev
  :d==1?'<b>Ma\u00f1ana es el \u00faltimo d\u00eda</b> para pedirlo y tenerlo en '+ev
  :'Quedan <b>'+d+' d\u00edas</b> para pedirlo y tenerlo en '+ev);}
+function quedan(d){return d==0?'hoy es el \u00faltimo d\u00eda para pedirlo':d==1?'ma\u00f1ana es el \u00faltimo d\u00eda para pedirlo':'quedan '+d+' d\u00edas para pedirlo';}
 var ev=pl.dataset.evento||'Halloween',d=dias(pl.dataset.hasta);
-if(d>=0){pl.innerHTML=msg(d,ev,'');}
+/* 24-nov (Armand): en Navidad, tres avisos claros: antes de Nochebuena / para Reyes / después de Reyes. No se deja de vender. */
+if(window.CELEBRA_AVISOS&&ev=='Nochebuena'&&pl.dataset.evento2=='Reyes'){var d2=dias(pl.dataset.hasta2);
+if(d>=0){pl.innerHTML='&#9989; <b>Llega antes de Nochebuena</b> &middot; '+quedan(d);}
+else if(d2>=0){pl.classList.add('tarde');pl.innerHTML='&#9888;&#65039; <b>No llega para Nochebuena &middot; llega para Reyes</b> &middot; '+quedan(d2)+' a tiempo';}
+else{pl.classList.add('tarde');pl.innerHTML='&#9888;&#65039; <b>Llega despu\u00e9s de Reyes</b> (entrega en '+(pl.dataset.dias||'7-15')+' d\u00edas)';}}
+else if(d>=0){pl.innerHTML=msg(d,ev,'');}
 else if(pl.dataset.hasta2&&dias(pl.dataset.hasta2)>=0){pl.innerHTML=msg(dias(pl.dataset.hasta2),pl.dataset.evento2,pl.dataset.tarde||('Ya no llega para '+ev+', pero s\u00ed para '+pl.dataset.evento2+'. '));}
 else{var ult=pl.dataset.evento2||ev;pl.classList.add('tarde');pl.innerHTML='&#9888;&#65039; Si lo pides hoy, <b>llegar\u00e1 despu\u00e9s de '+ult+'</b> (entrega en '+(pl.dataset.dias||'7-15')+' d\u00edas)';}}
 /* 31-oct (confianza): fecha de entrega con d\u00edas reales en vez de "7-15 d\u00edas" */
 var ll=document.querySelector('.llega');if(ll){var M=['enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre'];
-var a=new Date(),b=new Date();a.setDate(a.getDate()+(+ll.dataset.min));b.setDate(b.getDate()+(+ll.dataset.max));
+var a=window.CELEBRA_HOY?new Date(window.CELEBRA_HOY+'T12:00:00'):new Date(),b=new Date(a);a.setDate(a.getDate()+(+ll.dataset.min));b.setDate(b.getDate()+(+ll.dataset.max));
 ll.innerHTML='&#128666; Si lo pides hoy, te llega <b>entre el '+a.getDate()+(a.getMonth()!=b.getMonth()?' de '+M[a.getMonth()]:'')+' y el '+b.getDate()+' de '+M[b.getMonth()]+'</b> &middot; env\u00edo gratis '+(ll.dataset.zona||'a la Pen\u00ednsula y Baleares');}
 })();
 
