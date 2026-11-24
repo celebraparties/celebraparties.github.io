@@ -35,7 +35,7 @@ var src=g('utm_source');
 if(src){if(antes&&antes.u)return;
 S.setItem(K,JSON.stringify({u:1,r:[c(src,30),c(g('utm_medium'),20),c(g('utm_campaign')||g('utm_content'),40),c(pg,80)].join('_')}));return;}
 if(antes)return;
-var seg=(location.pathname.split('/')[1]||'').toLowerCase(),ENT={ig:1,fb:1,tt:1,wa:1,pin:1,gta:1,a:1},f,m='x';
+var seg=(location.pathname.split('/')[1]||'').toLowerCase(),ENT={ig:1,fb:1,tt:1,wa:1,pin:1,gta:1,gamer:1,a:1},f,m='x';
 if(ENT[seg]){f=seg;m='entrada';}else{var h='';try{h=document.referrer?new URL(document.referrer).hostname.toLowerCase():'';}catch(e){}
 var R=[['instagram','instagram'],['facebook','facebook'],['fb.','facebook'],['tiktok','tiktok'],['pinterest','pinterest'],['pin.it','pinterest'],
 ['google','google'],['bing','bing'],['etsy','etsy'],['whatsapp','whatsapp'],['wa.me','whatsapp'],['youtube','youtube'],['t.co','x'],['twitter','x'],['x.com','x']];
